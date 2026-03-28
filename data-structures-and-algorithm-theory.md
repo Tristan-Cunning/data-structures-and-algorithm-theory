@@ -164,6 +164,10 @@ return n/2 \*\* (n + 1)
 
 log2(1024) = 10
 
+**Essentially**
+
+- How many times the value gets split in half.
+
 Basicly the opposite of exponent
 
 ## Topic 1F: Analyzing complexity: Linear, logarithmic, and exponential growth
@@ -173,4 +177,21 @@ Measure of how many zero's behind 1
 
 ![Examples of the different functions](./Images/Ex1.png)
 
-## Topic 1G:
+## Topic 1G: Rules for simplifying complexity
+
+O(n + n) ---> O(n)
+O(2\*n) ---> O(n)
+O(n+5) ---> O(n)
+
+All the same because the constant is what keeps it an overestimation
+
+O(n*log(n) + log(n)) = O(n*log(n))
+
+Everything else is smaller than the O(n\*log(n))
+
+O(n^2 + 2\*n +5) ---> O(n^2)
+
+n^2 will have the biggest affect on the outcome
+Generally don't want this as it grows rapidly
+
+The function is determined by what factor causes the greatest effect
