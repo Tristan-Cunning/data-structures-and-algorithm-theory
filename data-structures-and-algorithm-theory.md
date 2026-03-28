@@ -60,7 +60,7 @@ O(1)
 O(n)
 O(m + n) == O(max(m,n))
 O(n \* log(n))
-O(n \*\* 2)
+O(n^ 2)
 O(n ** 3)
 O(2 ** n)
 
@@ -152,7 +152,7 @@ solution += i;
 O(1)
 
 function efficientSumN(n) {
-return n/2 \*\* (n + 1)
+return n/2^ (n + 1)
 }
 
 ## Topic 1E: Understanding big O notation and logarithm
@@ -195,3 +195,68 @@ n^2 will have the biggest affect on the outcome
 Generally don't want this as it grows rapidly
 
 The function is determined by what factor causes the greatest effect
+
+# Module 2: Basic data structures: lists, dictionaries, tuples, stacks, queues
+
+## Topic 2A: Introduction to dictionaries, lists, stacks, queues, and tuples
+
+JavaScript objects with keys and values
+const o ={
+key1: 'value'
+key2: 'value2'
+}
+Called a dictionary in python. Called with the key
+
+Object: Dictionary = key and values
+Array:
+
+- Lists
+- Stack
+- Queue
+- Tuple (Array of fixed length)
+
+Lists = list of values
+
+- Can add and delete values
+
+Stack = Like a list but only care about the most right value
+
+- .push() and .pop()
+- You put an item on top and take the item on top
+
+Queue = Like list but focuses on the value to most left
+
+- .shift() takes a value from the left
+- .unshift() Adds a value to the left
+- .push() adds a value to the right
+- .pop() Takes a value from the right
+
+Kinda like first in first out
+
+Tuples = Array with fixed length
+
+- One variable that can store multiple values
+- JS doesn't have tuple type
+- TypeScript can define a tuple
+
+## Topic 2B: Dictionary excercise: Most frequent element
+
+This is a typical problem I might see in an interview and the thought process behind solving
+**Suppose a JS array is given. Return the element that occurs the most often in the array.**
+
+- Assume there are only primitive datatypes
+  - Strings, number, booleans, null, undefined, symbol()
+- Interviewer informs that these are the ones used
+  - String, number(except NaN), boolean
+- What happens if you have multiple answers?(Question to the interviewer)
+  - You can assume that there is always 1 single element with the maximum occurence.(Response)
+    - Don't have to worry about input
+    - Don't waste effort on problems you don't have to solve.
+- Come up with test examples
+  - ['str'] ---> 'str'
+  - [true, true] ---> true
+  - [5, 2, 5] ---> 5
+  - [5, 2, 2] ---> 2
+  - [false, false, 2, 2, false] ---> false
+    Leaving the video here for the night. We just got our acceptance criteria for the question.
+    Need to continue at 8:50
