@@ -12,7 +12,7 @@
 
 1. [Big'O notation](#module-1-bigo-notation)
 2. [Basic data structures: Lists, dictionaries, tuples, stacks, and queues.](#module-2-basic-data-structures-lists-dictionaries-tuples-stacks-queues)
-3. Recursion
+3. [Recursion](#module-3-recursion)
 4. Linked lists and binary trees
 5. heaps and sorting
 6. Dynamic programming
@@ -587,6 +587,8 @@ Thought process
 - Remove the last element
 - Pairs them up
 
+[JS Here](./Module2/CodingChallenges/2ECodingChallenge.js)
+
 ## Topic 2F: Summary
 
 Dictionary
@@ -598,3 +600,62 @@ Dictionary
   - Only the most recent entry is on top
     Tuples(trade values)
 - [a, b] = [b, a]
+
+# Module 3: Recursion
+
+## Topic 3A: What is recursion, factorial example
+
+[JS here](./Module3/topic3A.js)
+
+Things that can be solved with recursion can also be solved without
+It's a different way of thinking
+
+- Has you solve problems more easily
+- Very close to math proofs
+
+Many interviews will have a recursive and iterative
+
+### Direct Recursion
+
+Functions calls itself
+
+- You change some variables and function calls itself on the new variables
+
+### Indirect recursion
+
+functionA calls functionB
+functionB calls functionA
+
+Make sure to have a terminal condition
+
+### Factorial
+
+n\*(n-1)
+
+## Topic 3B: Fibonacci excercise: Recursion and memoization
+
+[JS Here](./Module3/topic3B.js)
+
+### Excercise: Fibonacci sequence
+
+Fibonacci sequence:
+
+fib(0) = 0
+
+fib(1) = 1
+
+fib(n) = fib(n-1) + fib(n-2)
+
+- The sum of the last 2 numbers
+
+Functional programming is declaritive
+
+- Lay out the rules of fib and let it run
+
+### Memoization
+
+Optimisation technique
+
+- Performance enhancement
+
+Pick back up at 5 minutes
