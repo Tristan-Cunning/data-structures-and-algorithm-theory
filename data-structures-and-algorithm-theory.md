@@ -10,8 +10,8 @@
 
 ## Modules
 
-1. Big'O notation
-2. Basic data structures: Lists, dictionaries, tuples, stacks, and queues.
+1. [Big'O notation](#module-1-bigo-notation)
+2. [Basic data structures: Lists, dictionaries, tuples, stacks, and queues.](#module-2-basic-data-structures-lists-dictionaries-tuples-stacks-queues)
 3. Recursion
 4. Linked lists and binary trees
 5. heaps and sorting
@@ -207,13 +207,14 @@ key2: 'value2'
 }
 Called a dictionary in python. Called with the key
 
-Object: Dictionary = key and values
-Array:
-
-- Lists
-- Stack
-- Queue
-- Tuple (Array of fixed length)
+- Object: Dictionary = key and values
+  - Building a dictionary: O(n) time + O(n) space
+  - Accessing a dictionary: O(1)
+- Array:
+  - Lists
+  - Stack
+  - Queue
+  - Tuple (Array of fixed length)
 
 Lists = list of values
 
@@ -244,6 +245,8 @@ Tuples = Array with fixed length
 This is a typical problem I might see in an interview and the thought process behind solving
 **Suppose a JS array is given. Return the element that occurs the most often in the array.**
 
+### This is simple pseudocode that needs to be made in JS
+
 - Assume there are only primitive datatypes
   - Strings, number, booleans, null, undefined, symbol()
 - Interviewer informs that these are the ones used
@@ -258,5 +261,222 @@ This is a typical problem I might see in an interview and the thought process be
   - [5, 2, 5] ---> 5
   - [5, 2, 2] ---> 2
   - [false, false, 2, 2, false] ---> false
-    Leaving the video here for the night. We just got our acceptance criteria for the question.
-    Need to continue at 8:50
+
+Steps of the solution are important to communicate
+
+- Need to show the interviewer what your thinking
+
+result = null
+
+maxCount = 0
+
+for each elem of the arr:
+currentCount = count(arr, elem)
+Looks for each type of elemnt and adds to the count for that type
+
+if currentCount > maxCount;
+
+- maxCount = currentCount;
+- result = elem
+  return result;
+
+### Converting the pseudocode to usable code
+
+function countElementInArr(arr, target) {
+let result = 0;
+
+for (let elem of arr) {
+if(elem === target) {
+result += 1;
+}
+}
+
+return result;
+}
+
+function solution(arr) {
+
+1. state space
+   let result = null;
+   let maxCount = 0;
+2. algorithm steps
+   for (let elem of arr) {
+   let currentCount = countElementInArr(arr, elem);
+   if (currentCount > maxCount);
+   maxCount = currentCount ;
+   }
+3. return value
+   return result;
+   }
+
+**This comes out as an O(n^2)**
+
+**Need to simplify so there are fewer steps**
+
+result = null
+
+maxCount = 0
+
+sort(arr) **O(n\*log(n))** When sorted optimally
+
+currentElement = null
+
+currentCount = 0
+
+for each elem of arr: **O(n)**
+
+- if currentElem == elem:
+  - increase currentCount by 1
+- else:
+  - if currentCount > maxCount:
+    - result = currentElem
+    - maxCount = currentCount
+  - currentCount = 1
+  - currentElem - elem
+
+**O(n*log(n) + n) = O(n*log(n))**
+
+### Using a dictionary
+
+If we knew how to use a dictionary we would as it seem to be faster.
+
+- O(n) and O(1)
+
+#### Making a dictionary
+
+false --> 'b_false'
+15 --> 'n_15'
+'abc' --> 's_abc'
+
+- Need to check with the interviewer to make sure we can exclude edge cases
+  Once we convert these values we have our keys for the dictionary
+  {
+  'b_false': 3,
+  'n_2': 2
+  }
+
+**Thought process**
+result = null;
+maxCount = 0;
+
+1. Build dictionary d from array **O(n)**
+2. for each key in d: **O(n)**
+
+- if d[key] > maxCount:
+  - result = convert(key) **Gotta change it back**
+  - maxCount = d[key]
+
+3. return result
+
+**The code made in console**
+
+function valueToKey(value){
+
+if (typeof value === 'string') {
+return 's\*' + value;
+}
+if (typeof value === 'number') {
+return 'n\*' + value;
+}
+if (typeof value === 'boolean') {
+return 'b\_' + value;
+}
+}
+
+function buildDictionary (arr) {
+let d = {};
+for (let elem of arr) {
+let key = valueToKey(elem);
+if (key in d) {
+d[key] +=1;
+} else {
+d[key] = 1;
+}
+}
+return d;
+
+function solution (arr) {
+
+1.  state space
+
+    let result = null;
+    let maxCount = 0;
+
+2.  algorithm steps
+
+    let d = buildDictionary (arr); **O(n)**
+
+3.  return value
+
+    return result;
+    }
+    }
+
+This whole step wastes, at most, O(n) time
+
+#### Using the dictionary
+
+**Code generated in console**
+
+function valueToKey(value){
+if (typeof value === 'string') {
+return 's*' + value;
+}
+if (typeof value === 'number') {
+return 'n*' + value;
+}
+if (typeof value === 'boolean') {
+return 'b\_' + value;
+}
+}
+
+function keyToValue(key) {
+if (key[0] === 's') {
+return key.substring(2);
+}
+if (key[0] === 'n') {
+return Number.parseFloat(key.substring(2));
+}
+return key[0] === 'b_true';
+}
+
+function buildDictionary(arr) {
+let d = {};
+for (let elem of arr) {
+let key = valueToKey(elem);
+if (key in d) {
+d[key] +=1;
+} else {
+d[key] = 1;
+}
+}
+return d;
+}
+
+function solution(arr) {
+// 1. state space
+let result = null;
+let maxCount = 0;
+// 2. algorithm steps
+let d = buildDictionary(arr); // O(n)
+
+for (let key in d) { // O(n)
+if (d[key] > maxCount) {
+result = keyToValue(key);
+maxCount = d[key];
+}
+}
+// 3. return value
+return result;
+}
+
+Space complexity at worst case is O(n)
+
+### Space complexity
+
+Measured as the amount of extra space you need on top of the input
+The amount of space needed as worst case in this example:
+
+- Space for all the keys
+- +2 characters per value
+- values
