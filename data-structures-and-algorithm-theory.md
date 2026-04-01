@@ -373,10 +373,10 @@ maxCount = 0;
 function valueToKey(value){
 
 if (typeof value === 'string') {
-return 's\*' + value;
+return 's\_' + value;
 }
 if (typeof value === 'number') {
-return 'n\*' + value;
+return 'n\_' + value;
 }
 if (typeof value === 'boolean') {
 return 'b\_' + value;
@@ -420,10 +420,10 @@ This whole step wastes, at most, O(n) time
 
 function valueToKey(value){
 if (typeof value === 'string') {
-return 's*' + value;
+return 's\_' + value;
 }
 if (typeof value === 'number') {
-return 'n*' + value;
+return 'n\_' + value;
 }
 if (typeof value === 'boolean') {
 return 'b\_' + value;
@@ -480,3 +480,121 @@ The amount of space needed as worst case in this example:
 - Space for all the keys
 - +2 characters per value
 - values
+
+## Topic 2C: Coding challenge
+
+**Suppose a JS array on numbers is given. return the element that cannot have a pair.**
+
+**You can assume that there is always exactly 1 result.**
+
+**The numbers are between 1 and 1000000 and they are integers.**
+
+[1] ---> 1
+
+[1, 1, 1] ---> 1
+
+[1, 2, 1, 2, 1] ---> 1
+
+[1, 1, 2] ---> 2
+
+### Thinking it out using a dictionary
+
+1. Get array
+2. Dictionary keys by number
+3. For each key we check if there is an even or odd amount of them
+4. Odd means no pair even means paired off.
+5. Return element that has no pair
+
+[JS can be found here](./CodingChallenges/2CCodingChallenge.js)
+
+### Coding challenge walkthrough
+
+Check the JS for the dictionary solution
+
+#### Set solution
+
+if you have a dictionary where the key just has just true value
+
+- Represents if the key is in the data set
+  - Member can only be in the set or not
+
+Useful in this case as it lets you count 1 and 2, then knocks off the pairs as they form
+
+#### bitwise XOR
+
+Linear time
+
+Constant space
+
+**bitwise XOR**
+^ is ussed as it's actual self in this section. Not an exponent as I've been using it
+
+A B A^B
+0 0 0 if the same
+0 1 1 if different
+1 0 1
+1 1 0
+
+9: 1001 [8 + 1]
+6: 0110 [0 + 4 + 2 + 0]
+9^6: 1111 [8 + 4 + 2 + 1] 15
+
+15^6:
+1111 15
+0110 6
+
+---
+
+1001 9 [0 for same 1 for different]
+
+Might not actually come up as an interview type question. They may ask for another excercise
+as this one's too easy or already known.
+
+## Topic 2E: Stack excercise: Parenthesis validation
+
+1. Suppose an arithmatic exprssion is given.
+2. Determine if the parenthesis are correctly used in the expression.
+3. You can assume that the rest of the expression is correct, only the parenthesis can be badly aligned.
+
+Correct: '(5+(3\*2+4)-3)+(8-2)'
+Incorrect: '((5+3)' or '(5+3))'
+
+Don't evaluate the expression.
+Just focus on the form
+
+### What do we need to do?
+
+'(5+(3\*2+4)-3)+(8-2)'
+We don't care about the numbers themselves just the form of the ()'s
+'(())()'
+
+- The count of the open and closed should be the same.
+- At each point in time, there should be at least as many open ()'s
+  parsed as close parenthesis.
+
+Don't really need to use stack but that's what we're going wwith
+
+#### Algorithm
+
+'(())()'
+'[(())()]{[()]}'
+
+Thought process
+
+1. As we read the excercise we put each open parenthesis in a stack
+2. When we see a close parenthesis we pop the stack
+
+- Remove the last element
+- Pairs them up
+
+## Topic 2F: Summary
+
+Dictionary
+
+- Uses keys to categorize all entries.
+  Arrays(list)
+  Stacks
+- First in last out
+  - Only the most recent entry is on top
+    Tuples(trade values)
+- [a, b] = [b, a]
