@@ -13,7 +13,7 @@
 1. [Big'O notation](#module-1-bigo-notation)
 2. [Basic data structures: Lists, dictionaries, tuples, stacks, and queues.](#module-2-basic-data-structures-lists-dictionaries-tuples-stacks-queues)
 3. [Recursion](#module-3-recursion)
-4. Linked lists and binary trees
+4. [Linked lists and binary trees](#module-4-linked-lists-and-binary-trees)
 5. heaps and sorting
 6. Dynamic programming
 
@@ -718,3 +718,67 @@ Memoization:
 - Storing of previous calc so that when called again the value can just be pulled instead of recalculated.
 
 We now know recursion so we can use new datatypes more easily.
+
+# Module 4: Linked lists and binary trees
+
+## Topic 4A: Introduction to linked lists and binary trees
+
+Recursive data structures:
+
+- Linked list
+- Binary tree
+
+### Linked list:
+
+Chain of elements where you have a value and a pointer(reference) to the next element that
+looks exactly alike.
+
+- Recursive as every element of a linked list can be interpretted as a linked list on itself
+- One at the end has a null value
+  - States "this is the end"
+
+[JS Here](/Module4/topic4A.js)
+
+Linked list EX:
+![Linked list EX:](./Images/linkedListEx.png)
+
+### Binary tree
+
+Like a linked list
+
+The difference is:
+
+- There are 2 pointers for each element
+  - left and right branch of the tree
+- Can traverse back and forth
+
+**Trees:**
+Can have more than just left and right
+
+Like a list
+
+- 2 pointers
+  Pointers don't point toward previous
+
+Binary tree EX:
+[Binary tree EX:](./Images/binaryTreeEx.png)
+
+Used for different purposes
+
+- Learn in this module
+
+Both are defined recursively
+
+## Topic 4B: Linked list excercise: filter duplicates
+
+1. Suppose a linked list is given.
+2. Filter out the duplicates from the list.
+3. Return a reference of the original node of the list.
+   [JS Here](./Module4/topic4B.js)
+
+- linked list:
+
+The main idea is to look at the value of the next element for the current element.
+If they're the same passover the next value and check again.
+Keep adjusting the next element until you reach a different value.
+This become the next element for the first element of the line of same value elements.
