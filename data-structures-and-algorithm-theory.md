@@ -654,8 +654,12 @@ Functional programming is declaritive
 
 ### Memoization
 
-Optimisation technique
+Memoization involves storing the results of expensive function calls and returning
+the cached result when the same inputs occur again. Instead of re-calculating a value
+multiple times, the function checks a "memo" (usually an object or dictionary) to see
+if the work has already been done.
 
+- Optimisation technique
 - Performance enhancement
 
 #### fib optimization
@@ -668,10 +672,14 @@ re-calculated multiple times.
 
 ### Solving iterratively
 
+While recursion solves a problem by having a function call itself,
+iteration solves it by using a loop to repeat a set of instructions
+until a specific condition is met.
+
 **Tail recursive**
 "We have accumulator vairables. And then based on those variables we can calculate the result."
 
-### Excercise:
+## Topic 3C: Fibonacci Excercise: Tail recursion and iterative technique
 
 1. Take the fibonacci solution
 
@@ -684,3 +692,29 @@ re-calculated multiple times.
   }
 
 2. Solve it in an iterative way
+
+#### Solving iteratively and tail recursively
+
+Use of:
+
+- tuples
+- Destructuring asignment
+  - **Something to search later**
+
+**Every recursive solution has an iterative solution**
+
+## Topic 3D: Module 3 Summary
+
+Used the factorial and fibonacci sequence to perform recursion
+
+Recursion:
+
+- Called itself
+
+Learned about stack vs heap
+
+Memoization:
+
+- Storing of previous calc so that when called again the value can just be pulled instead of recalculated.
+
+We now know recursion so we can use new datatypes more easily.

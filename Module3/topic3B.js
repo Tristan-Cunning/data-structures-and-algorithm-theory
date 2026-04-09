@@ -61,3 +61,20 @@ function factI(n) {
 	}
 	return acc;
 }
+function fibITR(n, first = 0, second = 1) {
+	if (n === 0) return first;
+	if (n === 1) return second;
+	return fibITR(n - 1, second, first + second);
+}
+
+//Iterative and tail recursion
+function fibI2(n) {
+	if (n === 0) return 0;
+	let first = 0;
+	letsecond = 1;
+
+	while (n > 1) {
+		[first, second] = [second, first + second]; //Destructuring asignment
+	}
+	return second;
+}
