@@ -658,4 +658,29 @@ Optimisation technique
 
 - Performance enhancement
 
-Pick back up at 5 minutes
+#### fib optimization
+
+We are going to use memo
+
+**Memo**
+Stores the value a previous calculation so that the calculation doesn't have to be
+re-calculated multiple times.
+
+### Solving iterratively
+
+**Tail recursive**
+"We have accumulator vairables. And then based on those variables we can calculate the result."
+
+### Excercise:
+
+1. Take the fibonacci solution
+
+- function fib(n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  let fib1 = fib(n - 1, memo);
+  let fib2 = fib(n - 2, memo);
+  return fib1 + fib2;
+  }
+
+2. Solve it in an iterative way
