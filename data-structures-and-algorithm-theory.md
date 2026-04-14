@@ -737,6 +737,18 @@ looks exactly alike.
 - One at the end has a null value
   - States "this is the end"
 
+Node: The basic building block of a linked list. It typically consists of:
+
+- Data: The actual value or information being stored (e.g., an integer or a string).
+- Next Pointer: A reference or address that links to the succeeding node.
+
+Head: A pointer that marks the beginning of the list, pointing to the very first node.
+
+Tail: Often refers to the last node in the list, whose "next" pointer is usually set to NULL
+or nullptr to signify the end of the chain.
+
+Null: A special value used in the last node to indicate that there are no further nodes in the sequence.
+
 [JS Here](/Module4/topic4A.js)
 
 Linked list EX:
@@ -782,3 +794,35 @@ The main idea is to look at the value of the next element for the current elemen
 If they're the same passover the next value and check again.
 Keep adjusting the next element until you reach a different value.
 This become the next element for the first element of the line of same value elements.
+
+## Topic 4C: Binary tree excercise: Maximum length
+
+[JS Here](./Module4/topic4C.js)
+
+Going to solve some excercies with binary tree
+
+let node = {
+value: 5,
+left: leftItem,
+right: rightItem
+}
+
+1. Calculate the maximum length of a binary tree.
+
+- Going to solve recursively.
+
+## Topic 4D: Binary tree excercise: Maximum sum
+
+**Continuing on from 4C** 2. Calculate the largest sum in a binary tree from root to leaf.
+
+## Topic 4E: Binary tree excercise: Traversal
+
+**Continuing from 4C**
+
+3. Traverse the eements of a binary tree:
+
+- Preorder
+- In order
+- Postorder
+
+# Module 5: Heaps and Sorting

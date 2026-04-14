@@ -1,7 +1,7 @@
 function filterDuplicates(list) {
 	let current = list;
 	while (current !== null) {
-		let { value, next } = list; //Same as list.value and list.next
+		let { value, next } = current; //Same as list.value and list.next
 
 		let candidate = next;
 		while (candidate?.value === value) {
