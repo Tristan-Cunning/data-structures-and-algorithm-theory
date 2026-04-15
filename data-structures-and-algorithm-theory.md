@@ -14,7 +14,7 @@
 2. [Basic data structures: Lists, dictionaries, tuples, stacks, and queues.](#module-2-basic-data-structures-lists-dictionaries-tuples-stacks-queues)
 3. [Recursion](#module-3-recursion)
 4. [Linked lists and binary trees](#module-4-linked-lists-and-binary-trees)
-5. heaps and sorting
+5. [Heaps and sorting](#module-5-heaps-and-sorting)
 6. Dynamic programming
 
 # Module 1: Big'O notation
@@ -826,3 +826,81 @@ right: rightItem
 - Postorder
 
 # Module 5: Heaps and Sorting
+
+## Topic 5A: Introduction
+
+Gonna build on what we know and introduce heaps and sorting
+
+**Sorting:** Simpler than what we've been doing. Often introduced earlier in learning but
+can shift people to overuse it.
+
+- Less efficient than dictionaries or other things depending on usage.
+- complexity: n\*log(n)
+
+## Topic 5B: Understanding binary heaps
+
+**Binary Heaps**
+
+Can be binary min heaps or binary max heaps.
+Is itself a binary tree.
+**Rules**
+
+- You can insert elements into the binary heap.
+  - Gets added to the end of the array.
+- Parent-child relationships
+  - Formula is:
+    - childLeftIndex = parentIndex \* 2 + 1
+    - childRightIndex = parentIndex \* 2 + 2
+    - Assuming that the root is at element 0
+- Has a specific property:
+  - Min heap
+    - Always has the smallest element of the heap in the root.(On the top)
+      - Bubbling up: When you add a new element it compares itself to the element before it.
+        If it is less then the one before they switch.
+        Continues until it finds an element less than itself.
+  - Max heap
+    - Opposite of min heap.
+
+## Topic 5C: Building a binary min heap
+
+[JS Here](/Module5/topic5C.js)
+
+It is made as a class
+
+Constructor
+
+- Can be called in multiple ways
+  1.
+  - let heap = new BinaryMinHeap()
+    - Creates an empty array
+  - let heap2 = new BinaryMinHeap([5, 1, 2])
+  - heap2.heap
+    - Combines them and bubbles it
+  2.
+  - Use constructor.
+    - Initializes the heap as an empty array.
+    - Use helper function.
+      - Inserts each element
+
+**Excercise:**
+
+- After finishing the video.
+- Is a tough excercise.
+  Implement the binary heap myself. (Start to finish)
+  - Will likely mess up.
+
+## Topic 5D: Sorting Algorithms
+
+Sorting is one of the first topics usually introduced
+
+It is based on heaps which are based on binary trees.
+
+Heap sort is optimal for time complexity. Not space complexity.
+
+- Heap is o(n\*log(n))
+- The idea:
+  - We build a heap out of the array.
+  - Delete all the minumums until we have something in the heap.
+
+[JS Here](./Module5/topic5D.js)
+3:28
