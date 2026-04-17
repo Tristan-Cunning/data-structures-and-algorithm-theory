@@ -994,3 +994,30 @@ Types of sorting
 - Selection
 - Insertion
 - Heap sort
+
+# Module 6: Dynamic programming
+
+## Topic 6A: Introduction
+
+This topic is one of the hardest for developers.
+
+It is recursive thinking in an iterative way using memoization backwards.
+
+Table/Matrix: An array of arrays.
+
+## Topic 6B: Solving fibonacci excercise with table construction
+
+fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2)
+
+New approach: **Building a table**
+
+Build the table as you continue counting up.
+
+- Problem is you're still storing all the values you don't need.
+  - We only need the 2 most recent.
+
+**Sliding windows:** Kind of like a table but it only keeps the ones we want.
+
+## Topic 6C: Longest common substring excercise: Recursive method
