@@ -9,3 +9,10 @@ Is a tough excercise.
 Implement the binary heap myself. (Start to finish)
 
 After I'm done set an alarm for 3 days/weeks/months and do it again.
+
+# Topic 5D
+
+Look up later:
+
+- How to prove that sorting is optimal
+  - Sorting n log n proof

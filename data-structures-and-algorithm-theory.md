@@ -903,4 +903,94 @@ Heap sort is optimal for time complexity. Not space complexity.
   - Delete all the minumums until we have something in the heap.
 
 [JS Here](./Module5/topic5D.js)
-3:28
+
+heapSort function is not optimal in terms of space complexity.
+
+- Could reuse the orignal input array
+  - Place all operations in there.
+  - Add another pointer for the supposed length of the part of array still used as heap and
+    the part of the array that is a sorted list.
+
+Problem solving need:
+
+- Bulding a dictionary: O(n)
+- Sort a list: O(n \* log(n))
+  - If you sort first it's already more consuming then a dictionary.
+- Adding a loop makes O(n\*log(n)) + O(n).
+
+### Sorting
+
+Has a built in function in JS.
+
+- Usually used when working on a project.
+
+### Example:
+
+let arr = [5, 1, 2, , 9]
+arr.sort() // CAREFULLY!
+
+- Uses lexico graphic sorting
+  - Takes result character by character.
+  - Compares the strings.
+  - 12 can come up as < 2.
+    - First character 1 is < 2.
+- Needs a comparator.
+  function comparator(a, b) {
+  return a - b;
+  }
+  arr.sort(comparator)
+- Basicly if it returns positive there is a switch.
+  Usually gets written as:
+- arr.sort((a, b) => a - b)
+
+## Topic 5E: Sorting vs. dictionary: Smallest missing positive integer
+
+### When do we need to sort and not sort?
+
+[JS Here](/Module5/topic5E.js)
+
+Suppose there are 2 possible excercises.
+
+1. Explicitly requested to sort the result in some ways.
+
+- Apply a sorting algorithm
+
+2. When you have an array like:
+
+- [1, 5, 5, 2, 8, 9, 11, 11, 2, -4]
+- Task is to
+  - Find the smallest element that's a positive integer but is not in the array.
+
+### Big trap of sorting:
+
+Often times you can do better.
+Whenever you think about sorting also think about dictionaries or hash maps
+
+- Easy to build a dictionary
+  - Creat an empty dictionary
+  - Fill it with the elements of the array, stating true if its there
+  - iterate over the dictionary until a false comes up
+
+In many cases a dictionary is superior to sorting
+
+## Topic 5F: Practical applications of sorting: Sorting days by length
+
+Sort the values in an array of strings according to the number of their letters
+in ascending order.
+[JS Here](./Module5/topic5F.js)
+
+## Topic 5G: Summary
+
+Should know how to use sorting now.
+There are different types of sorting algorithms.
+
+- Just learned merge sorting.
+- that would be good to learn is greek sort
+- Looks worse in theory then practice
+
+Types of sorting
+
+- Bubble
+- Selection
+- Insertion
+- Heap sort
